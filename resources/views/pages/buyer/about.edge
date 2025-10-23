@@ -1,0 +1,46 @@
+@layout.app({ title: "About Us" })
+  @slot('meta')
+    @vite(['resources/css/about.css'])
+  @end
+  
+  @slot('main')
+    <!-- ABOUT HERO -->
+    <div class="about-hero">
+      <h1>
+        About Us
+      </h1>
+      <p>
+        Official One Piece Merchandise Store
+      </p>
+    </div>
+
+    <!-- ABOUT CONTENT -->
+    <main class="about-content">
+      <p>
+        Welcome to our official One Piece merchandise store! We provide authentic One Piece shirts, tumblers, figures, and accessories directly inspired by your favorite characters from the Grand Line.
+      </p>
+      <p>
+        Our mission is to bring the world of One Piece into your everyday life with high-quality products that every fan will love.
+      </p>
+    </main>
+
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2>
+        Contact Us
+      </h2>
+      <p>
+        Email: <a href="mailto:support@onepiece-merch.com">nakata
+          @gmail.com
+        </a>
+      </p>
+      <p>
+        Instagram: <a href="#">          @nakataofficialmerch
+        </a>
+      </p>
+      <p>
+        Phone: +62 856-2319-0109
+      </p>
+    </section>
+  @end
+@end

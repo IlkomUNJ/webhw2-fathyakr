@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="resources/images/Nakata_Desc-removebg-preview.png" type="image/x-icon" />
+    <title>
+      Sign In - Nakata
+    </title>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+      * {
+        font-family: 'Source Sans Pro', sans-serif;
+      }
+      
+      html,
+      body {
+        background: white;
+      }
+      
+      body {
+        background-image: url('resources/images/hero.jpeg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 16px;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 300px;
+        background-color: aliceblue;
+        padding: 32px;
+        border-radius: 16px;
+      }
+      
+      form div {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+      
+      form div input {
+        font-size: 1rem;
+        padding: 4px 8px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+      }
+      
+      form div input:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+      
+      button {
+        font-size: 1.2rem;
+        padding: 8px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="">
+    <form action="/sign-in" method="POST">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="admin" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="admin" required />
+      </div>
+      <button type="submit">Sign In
+      </button>
+    </form>
+  </body>
+</html>

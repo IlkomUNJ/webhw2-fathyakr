@@ -1,0 +1,46 @@
+@layout.app({ title: "Products" })
+  @slot('meta')
+    @vite(['resources/css/products.css', 'resources/js/wishlistButton.js'])
+  @end
+  
+  @slot('main')
+    <!-- RECOMMENDED PRODUCTS -->
+    <div class="recommended-product">
+      <p style="margin-bottom: 30px">
+        Products
+      </p>
+      <div class="category-filter">
+        <button class="filter-btn active" data-category="all">
+          All Products
+        </button>
+      </div>
+
+      <div class="catalogue">
+        @each(product in products)
+          <div class="product">
+            <a href="/details?idProduct={{ product.id }}">
+              <img
+                class="product-image"
+                src="{{ product.image_url }}"
+                width="292"
+                height="382"
+                alt="{{ product.name }}"
+              />
+            </a>
+            <p style="font-weight: 500">
+              {{ product.name }}
+            </p>
+            <p style="font-weight: 500; font-size: 16px">
+              Sold: {{ product.sold }}
+            </p>
+            <p style="margin-top: 10px; margin-bottom: 10px">
+              {{ Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(product.price) }}
+            </p>
+            <button type="submit" class="btn-add-to-cart" data-product-id="{{ product.id }}">Add to Wishlist</button>
+          </div>
+        @endeach
+      </div>
+    </div>
+    <!-- END RECOMMENDED PRODUCTS -->
+  @end
+@end

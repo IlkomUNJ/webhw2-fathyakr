@@ -1,0 +1,60 @@
+@layout.app({ title: "Wishlist" })
+  @slot('meta')
+    @vite(['resources/css/wishlist.css', 'resources/js/wishlistButton.js'])
+  @end
+  
+  @slot('main')
+    <div class="shopping-cart">
+      <p style="margin-bottom: 30px;">
+        Your Wishlist
+      </p>
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>
+              Products info
+            </th>
+            <th>
+              Price
+            </th>
+            <th>
+              Remove
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          @each(item in wishlistItems)
+          {{ JSON.stringify(item) }}
+            <tr>
+              <td>
+                <div class="product-info">
+                  <img
+                    style="width: 187px; height: 166px; object-fit: cover;"
+                    src="{{ item.image_url }}"
+                    alt="Sample Product"
+                  />
+                  <div class="product-details">
+                    <h3>
+                      {{ item.name }}
+                    </h3>
+                  </div>
+                </div>
+              </td>
+              <td>
+                {{ Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(item.price) }}
+              </td>
+              <td>
+                <button class="submit-btn-red" data-product-id="{{ item.id }}">Remove from Wishlist</button>
+              </td>
+            </tr>
+          @else
+            <p class="text-gray-600 text-center col-span-full">
+              Your wishlist is empty.
+             <a href="/products" class="text-blue-500 underline">Browse products </a>to add items to your wishlist.
+            </p>
+          @end
+        </tbody>
+      </table>
+    </div>
+  @end
+@end

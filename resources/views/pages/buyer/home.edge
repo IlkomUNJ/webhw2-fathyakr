@@ -1,0 +1,66 @@
+@layout.app({ title: "Home" })
+  @slot('meta')
+    @vite(['resources/css/home.css', 'resources/js/wishlistButton.js'])
+  @end
+  
+  @slot('main')
+    <!-- EASY ACCESS -->
+    <div class="hero">
+      <img src="resources/images/hero.jpeg" alt="">
+    </div>
+
+    <div class="easy-access">
+      <span>From Grand Line <span class="pirata-one">to Your Closet</span></span>
+      <a href="/products">
+        <div class="btn-shop-now">
+          Shop Now
+        </div>
+      </a>
+    </div>
+    <!-- END EASY ACCESS -->
+
+    <!-- RECOMMENDED PRODUCTS -->
+    <div class="recommended-product">
+      <p style="margin-bottom: 30px;">
+        Recommended Product
+      </p>
+      <div class="catalogue-wrapper">
+        <div class="catalogue">
+          @each(product in products)
+            <div class="product">
+              <a href="/details">
+                <img
+                  style="object-fit: cover; border: 1px solid #dadada;"
+                  src="{{product.image_url}}"
+                  width="292"
+                  height="382"
+                  alt="{{product.name}}"
+                />
+              </a>
+              <p style="font-weight: 500;">
+                {{product.name}}
+              </p>
+              <p style="font-weight: 500; font-size: 16px">
+                Sold: {{product.sold}}
+              </p>
+              <p style="margin-top: 10px; margin-bottom: 10px;">
+                {{Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(product.price)}}
+              </p>
+              <button class="details-btn" data-product-id="{{product.id}}">Add to Wishlist</button>
+            </div>
+          @endeach
+        </div>
+        <!-- end catalogue -->
+
+        <div class="view-more">
+          <a href="/products">
+            <div class="btn-add-to-cart">
+              View More
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- END RECOMMENDED PRODUCTS -->
+  @end
+@end

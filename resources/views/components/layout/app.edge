@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {{ title || "Home" }} - Nakata
+    </title>
+
+    <link rel="icon" href="resources/images/Nakata_Desc-removebg-preview.png" type="image/x-icon" />
+
+    @vite(['resources/css/app.css'])
+    @if ($slots.meta)
+      {{{ await $slots.meta() }}}
+    @end
+  </head>
+  <body>
+    <!-- HEADER -->
+    @include('partials/header')
+    <!-- END HEADER -->
+    {{{ await $slots.main() }}}
+    <!-- FOOTER -->
+    @include('partials/footer')
+    <!-- END FOOTER -->
+  </body>
+</html>
